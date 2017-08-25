@@ -21,7 +21,6 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         bindButtonClickAction()
         
-        
     }
 
     override func didReceiveMemoryWarning() {
@@ -42,6 +41,11 @@ class ViewController: UIViewController {
     @objc private func endRecordAndPlay() {
         audioManager.stopRecord()
         audioManager.play()
+        // 存储这条音频的数据
+        let record = Record()
+        record.fileName = "12345"
+        record.filePath = "/record.wav"
+        CoreDataManager().addRecord(record)
     }
 
 }
