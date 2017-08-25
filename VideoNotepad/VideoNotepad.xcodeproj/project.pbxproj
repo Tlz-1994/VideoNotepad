@@ -1,0 +1,554 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		DA09AE321F504DD900F467C9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA09AE311F504DD900F467C9 /* AppDelegate.swift */; };
+		DA09AE341F504DD900F467C9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA09AE331F504DD900F467C9 /* ViewController.swift */; };
+		DA09AE371F504DD900F467C9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA09AE351F504DD900F467C9 /* Main.storyboard */; };
+		DA09AE3A1F504DD900F467C9 /* VideoNotepad.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DA09AE381F504DD900F467C9 /* VideoNotepad.xcdatamodeld */; };
+		DA09AE3C1F504DD900F467C9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA09AE3B1F504DD900F467C9 /* Assets.xcassets */; };
+		DA09AE3F1F504DD900F467C9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA09AE3D1F504DD900F467C9 /* LaunchScreen.storyboard */; };
+		DA09AE4A1F504DD900F467C9 /* VideoNotepadTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA09AE491F504DD900F467C9 /* VideoNotepadTests.swift */; };
+		DA09AE551F504DD900F467C9 /* VideoNotepadUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA09AE541F504DD900F467C9 /* VideoNotepadUITests.swift */; };
+		DA09AE631F5050FC00F467C9 /* AudioManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA09AE621F5050FC00F467C9 /* AudioManager.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		DA09AE461F504DD900F467C9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DA09AE261F504DD900F467C9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DA09AE2D1F504DD900F467C9;
+			remoteInfo = VideoNotepad;
+		};
+		DA09AE511F504DD900F467C9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DA09AE261F504DD900F467C9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DA09AE2D1F504DD900F467C9;
+			remoteInfo = VideoNotepad;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		DA09AE2E1F504DD900F467C9 /* VideoNotepad.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VideoNotepad.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DA09AE311F504DD900F467C9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		DA09AE331F504DD900F467C9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		DA09AE361F504DD900F467C9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		DA09AE391F504DD900F467C9 /* VideoNotepad.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = VideoNotepad.xcdatamodel; sourceTree = "<group>"; };
+		DA09AE3B1F504DD900F467C9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		DA09AE3E1F504DD900F467C9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		DA09AE401F504DD900F467C9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DA09AE451F504DD900F467C9 /* VideoNotepadTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VideoNotepadTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DA09AE491F504DD900F467C9 /* VideoNotepadTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoNotepadTests.swift; sourceTree = "<group>"; };
+		DA09AE4B1F504DD900F467C9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DA09AE501F504DD900F467C9 /* VideoNotepadUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VideoNotepadUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DA09AE541F504DD900F467C9 /* VideoNotepadUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoNotepadUITests.swift; sourceTree = "<group>"; };
+		DA09AE561F504DD900F467C9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DA09AE621F5050FC00F467C9 /* AudioManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioManager.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		DA09AE2B1F504DD900F467C9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DA09AE421F504DD900F467C9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DA09AE4D1F504DD900F467C9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		DA09AE251F504DD900F467C9 = {
+			isa = PBXGroup;
+			children = (
+				DA09AE301F504DD900F467C9 /* VideoNotepad */,
+				DA09AE481F504DD900F467C9 /* VideoNotepadTests */,
+				DA09AE531F504DD900F467C9 /* VideoNotepadUITests */,
+				DA09AE2F1F504DD900F467C9 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		DA09AE2F1F504DD900F467C9 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DA09AE2E1F504DD900F467C9 /* VideoNotepad.app */,
+				DA09AE451F504DD900F467C9 /* VideoNotepadTests.xctest */,
+				DA09AE501F504DD900F467C9 /* VideoNotepadUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DA09AE301F504DD900F467C9 /* VideoNotepad */ = {
+			isa = PBXGroup;
+			children = (
+				DA09AE311F504DD900F467C9 /* AppDelegate.swift */,
+				DA09AE331F504DD900F467C9 /* ViewController.swift */,
+				DA09AE621F5050FC00F467C9 /* AudioManager.swift */,
+				DA09AE351F504DD900F467C9 /* Main.storyboard */,
+				DA09AE3B1F504DD900F467C9 /* Assets.xcassets */,
+				DA09AE3D1F504DD900F467C9 /* LaunchScreen.storyboard */,
+				DA09AE401F504DD900F467C9 /* Info.plist */,
+				DA09AE381F504DD900F467C9 /* VideoNotepad.xcdatamodeld */,
+			);
+			path = VideoNotepad;
+			sourceTree = "<group>";
+		};
+		DA09AE481F504DD900F467C9 /* VideoNotepadTests */ = {
+			isa = PBXGroup;
+			children = (
+				DA09AE491F504DD900F467C9 /* VideoNotepadTests.swift */,
+				DA09AE4B1F504DD900F467C9 /* Info.plist */,
+			);
+			path = VideoNotepadTests;
+			sourceTree = "<group>";
+		};
+		DA09AE531F504DD900F467C9 /* VideoNotepadUITests */ = {
+			isa = PBXGroup;
+			children = (
+				DA09AE541F504DD900F467C9 /* VideoNotepadUITests.swift */,
+				DA09AE561F504DD900F467C9 /* Info.plist */,
+			);
+			path = VideoNotepadUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		DA09AE2D1F504DD900F467C9 /* VideoNotepad */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DA09AE591F504DD900F467C9 /* Build configuration list for PBXNativeTarget "VideoNotepad" */;
+			buildPhases = (
+				DA09AE2A1F504DD900F467C9 /* Sources */,
+				DA09AE2B1F504DD900F467C9 /* Frameworks */,
+				DA09AE2C1F504DD900F467C9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = VideoNotepad;
+			productName = VideoNotepad;
+			productReference = DA09AE2E1F504DD900F467C9 /* VideoNotepad.app */;
+			productType = "com.apple.product-type.application";
+		};
+		DA09AE441F504DD900F467C9 /* VideoNotepadTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DA09AE5C1F504DD900F467C9 /* Build configuration list for PBXNativeTarget "VideoNotepadTests" */;
+			buildPhases = (
+				DA09AE411F504DD900F467C9 /* Sources */,
+				DA09AE421F504DD900F467C9 /* Frameworks */,
+				DA09AE431F504DD900F467C9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DA09AE471F504DD900F467C9 /* PBXTargetDependency */,
+			);
+			name = VideoNotepadTests;
+			productName = VideoNotepadTests;
+			productReference = DA09AE451F504DD900F467C9 /* VideoNotepadTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		DA09AE4F1F504DD900F467C9 /* VideoNotepadUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DA09AE5F1F504DD900F467C9 /* Build configuration list for PBXNativeTarget "VideoNotepadUITests" */;
+			buildPhases = (
+				DA09AE4C1F504DD900F467C9 /* Sources */,
+				DA09AE4D1F504DD900F467C9 /* Frameworks */,
+				DA09AE4E1F504DD900F467C9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DA09AE521F504DD900F467C9 /* PBXTargetDependency */,
+			);
+			name = VideoNotepadUITests;
+			productName = VideoNotepadUITests;
+			productReference = DA09AE501F504DD900F467C9 /* VideoNotepadUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		DA09AE261F504DD900F467C9 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0830;
+				LastUpgradeCheck = 0830;
+				ORGANIZATIONNAME = Stefanie;
+				TargetAttributes = {
+					DA09AE2D1F504DD900F467C9 = {
+						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = DZNJ4F4E32;
+						ProvisioningStyle = Automatic;
+					};
+					DA09AE441F504DD900F467C9 = {
+						CreatedOnToolsVersion = 8.3.3;
+						ProvisioningStyle = Automatic;
+						TestTargetID = DA09AE2D1F504DD900F467C9;
+					};
+					DA09AE4F1F504DD900F467C9 = {
+						CreatedOnToolsVersion = 8.3.3;
+						ProvisioningStyle = Automatic;
+						TestTargetID = DA09AE2D1F504DD900F467C9;
+					};
+				};
+			};
+			buildConfigurationList = DA09AE291F504DD900F467C9 /* Build configuration list for PBXProject "VideoNotepad" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = DA09AE251F504DD900F467C9;
+			productRefGroup = DA09AE2F1F504DD900F467C9 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				DA09AE2D1F504DD900F467C9 /* VideoNotepad */,
+				DA09AE441F504DD900F467C9 /* VideoNotepadTests */,
+				DA09AE4F1F504DD900F467C9 /* VideoNotepadUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		DA09AE2C1F504DD900F467C9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DA09AE3F1F504DD900F467C9 /* LaunchScreen.storyboard in Resources */,
+				DA09AE3C1F504DD900F467C9 /* Assets.xcassets in Resources */,
+				DA09AE371F504DD900F467C9 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DA09AE431F504DD900F467C9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DA09AE4E1F504DD900F467C9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		DA09AE2A1F504DD900F467C9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DA09AE341F504DD900F467C9 /* ViewController.swift in Sources */,
+				DA09AE321F504DD900F467C9 /* AppDelegate.swift in Sources */,
+				DA09AE631F5050FC00F467C9 /* AudioManager.swift in Sources */,
+				DA09AE3A1F504DD900F467C9 /* VideoNotepad.xcdatamodeld in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DA09AE411F504DD900F467C9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DA09AE4A1F504DD900F467C9 /* VideoNotepadTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DA09AE4C1F504DD900F467C9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DA09AE551F504DD900F467C9 /* VideoNotepadUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		DA09AE471F504DD900F467C9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DA09AE2D1F504DD900F467C9 /* VideoNotepad */;
+			targetProxy = DA09AE461F504DD900F467C9 /* PBXContainerItemProxy */;
+		};
+		DA09AE521F504DD900F467C9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DA09AE2D1F504DD900F467C9 /* VideoNotepad */;
+			targetProxy = DA09AE511F504DD900F467C9 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		DA09AE351F504DD900F467C9 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DA09AE361F504DD900F467C9 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		DA09AE3D1F504DD900F467C9 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DA09AE3E1F504DD900F467C9 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		DA09AE571F504DD900F467C9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		DA09AE581F504DD900F467C9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		DA09AE5A1F504DD900F467C9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = DZNJ4F4E32;
+				INFOPLIST_FILE = VideoNotepad/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.52jiaoshi;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		DA09AE5B1F504DD900F467C9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = DZNJ4F4E32;
+				INFOPLIST_FILE = VideoNotepad/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.52jiaoshi;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		DA09AE5D1F504DD900F467C9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = VideoNotepadTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.tlz-1994.VideoNotepadTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VideoNotepad.app/VideoNotepad";
+			};
+			name = Debug;
+		};
+		DA09AE5E1F504DD900F467C9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = VideoNotepadTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.tlz-1994.VideoNotepadTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VideoNotepad.app/VideoNotepad";
+			};
+			name = Release;
+		};
+		DA09AE601F504DD900F467C9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				INFOPLIST_FILE = VideoNotepadUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.tlz-1994.VideoNotepadUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = VideoNotepad;
+			};
+			name = Debug;
+		};
+		DA09AE611F504DD900F467C9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				INFOPLIST_FILE = VideoNotepadUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.tlz-1994.VideoNotepadUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = VideoNotepad;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		DA09AE291F504DD900F467C9 /* Build configuration list for PBXProject "VideoNotepad" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DA09AE571F504DD900F467C9 /* Debug */,
+				DA09AE581F504DD900F467C9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DA09AE591F504DD900F467C9 /* Build configuration list for PBXNativeTarget "VideoNotepad" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DA09AE5A1F504DD900F467C9 /* Debug */,
+				DA09AE5B1F504DD900F467C9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		DA09AE5C1F504DD900F467C9 /* Build configuration list for PBXNativeTarget "VideoNotepadTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DA09AE5D1F504DD900F467C9 /* Debug */,
+				DA09AE5E1F504DD900F467C9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		DA09AE5F1F504DD900F467C9 /* Build configuration list for PBXNativeTarget "VideoNotepadUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DA09AE601F504DD900F467C9 /* Debug */,
+				DA09AE611F504DD900F467C9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		DA09AE381F504DD900F467C9 /* VideoNotepad.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				DA09AE391F504DD900F467C9 /* VideoNotepad.xcdatamodel */,
+			);
+			currentVersion = DA09AE391F504DD900F467C9 /* VideoNotepad.xcdatamodel */;
+			path = VideoNotepad.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = DA09AE261F504DD900F467C9 /* Project object */;
+}
