@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		DA09AE321F504DD900F467C9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA09AE311F504DD900F467C9 /* AppDelegate.swift */; };
-		DA09AE341F504DD900F467C9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA09AE331F504DD900F467C9 /* ViewController.swift */; };
+		DA09AE341F504DD900F467C9 /* RecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA09AE331F504DD900F467C9 /* RecordViewController.swift */; };
 		DA09AE371F504DD900F467C9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA09AE351F504DD900F467C9 /* Main.storyboard */; };
 		DA09AE3A1F504DD900F467C9 /* VideoNotepad.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DA09AE381F504DD900F467C9 /* VideoNotepad.xcdatamodeld */; };
 		DA09AE3C1F504DD900F467C9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA09AE3B1F504DD900F467C9 /* Assets.xcassets */; };
@@ -16,7 +16,11 @@
 		DA09AE4A1F504DD900F467C9 /* VideoNotepadTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA09AE491F504DD900F467C9 /* VideoNotepadTests.swift */; };
 		DA09AE551F504DD900F467C9 /* VideoNotepadUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA09AE541F504DD900F467C9 /* VideoNotepadUITests.swift */; };
 		DA09AE631F5050FC00F467C9 /* AudioManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA09AE621F5050FC00F467C9 /* AudioManager.swift */; };
+		DA16A7311F511AB200A2926F /* RecordCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA16A72F1F511AB200A2926F /* RecordCell.swift */; };
+		DA16A7321F511AB200A2926F /* RecordCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA16A7301F511AB200A2926F /* RecordCell.xib */; };
 		DA1CAE991F507151004686CE /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1CAE981F507151004686CE /* CoreDataManager.swift */; };
+		DADFC7511F5107EA0079CBDA /* RecordModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADFC7501F5107EA0079CBDA /* RecordModel.swift */; };
+		DADFC7531F510D1E0079CBDA /* RecordListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADFC7521F510D1E0079CBDA /* RecordListViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,7 +43,7 @@
 /* Begin PBXFileReference section */
 		DA09AE2E1F504DD900F467C9 /* VideoNotepad.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VideoNotepad.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA09AE311F504DD900F467C9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		DA09AE331F504DD900F467C9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		DA09AE331F504DD900F467C9 /* RecordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordViewController.swift; sourceTree = "<group>"; };
 		DA09AE361F504DD900F467C9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DA09AE391F504DD900F467C9 /* VideoNotepad.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = VideoNotepad.xcdatamodel; sourceTree = "<group>"; };
 		DA09AE3B1F504DD900F467C9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -52,7 +56,11 @@
 		DA09AE541F504DD900F467C9 /* VideoNotepadUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoNotepadUITests.swift; sourceTree = "<group>"; };
 		DA09AE561F504DD900F467C9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DA09AE621F5050FC00F467C9 /* AudioManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioManager.swift; sourceTree = "<group>"; };
+		DA16A72F1F511AB200A2926F /* RecordCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordCell.swift; sourceTree = "<group>"; };
+		DA16A7301F511AB200A2926F /* RecordCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecordCell.xib; sourceTree = "<group>"; };
 		DA1CAE981F507151004686CE /* CoreDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		DADFC7501F5107EA0079CBDA /* RecordModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordModel.swift; sourceTree = "<group>"; };
+		DADFC7521F510D1E0079CBDA /* RecordListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordListViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,9 +112,13 @@
 			isa = PBXGroup;
 			children = (
 				DA09AE311F504DD900F467C9 /* AppDelegate.swift */,
-				DA09AE331F504DD900F467C9 /* ViewController.swift */,
+				DA09AE331F504DD900F467C9 /* RecordViewController.swift */,
+				DADFC7521F510D1E0079CBDA /* RecordListViewController.swift */,
 				DA09AE621F5050FC00F467C9 /* AudioManager.swift */,
 				DA1CAE981F507151004686CE /* CoreDataManager.swift */,
+				DADFC7501F5107EA0079CBDA /* RecordModel.swift */,
+				DA16A72F1F511AB200A2926F /* RecordCell.swift */,
+				DA16A7301F511AB200A2926F /* RecordCell.xib */,
 				DA09AE351F504DD900F467C9 /* Main.storyboard */,
 				DA09AE3B1F504DD900F467C9 /* Assets.xcassets */,
 				DA09AE3D1F504DD900F467C9 /* LaunchScreen.storyboard */,
@@ -244,6 +256,7 @@
 			files = (
 				DA09AE3F1F504DD900F467C9 /* LaunchScreen.storyboard in Resources */,
 				DA09AE3C1F504DD900F467C9 /* Assets.xcassets in Resources */,
+				DA16A7321F511AB200A2926F /* RecordCell.xib in Resources */,
 				DA09AE371F504DD900F467C9 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -269,8 +282,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DA09AE341F504DD900F467C9 /* ViewController.swift in Sources */,
+				DA09AE341F504DD900F467C9 /* RecordViewController.swift in Sources */,
+				DADFC7531F510D1E0079CBDA /* RecordListViewController.swift in Sources */,
+				DA16A7311F511AB200A2926F /* RecordCell.swift in Sources */,
 				DA09AE321F504DD900F467C9 /* AppDelegate.swift in Sources */,
+				DADFC7511F5107EA0079CBDA /* RecordModel.swift in Sources */,
 				DA09AE631F5050FC00F467C9 /* AudioManager.swift in Sources */,
 				DA1CAE991F507151004686CE /* CoreDataManager.swift in Sources */,
 				DA09AE3A1F504DD900F467C9 /* VideoNotepad.xcdatamodeld in Sources */,
