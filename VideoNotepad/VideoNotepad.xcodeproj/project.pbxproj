@@ -21,6 +21,7 @@
 		DA1CAE991F507151004686CE /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1CAE981F507151004686CE /* CoreDataManager.swift */; };
 		DADFC7511F5107EA0079CBDA /* RecordModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADFC7501F5107EA0079CBDA /* RecordModel.swift */; };
 		DADFC7531F510D1E0079CBDA /* RecordListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADFC7521F510D1E0079CBDA /* RecordListViewController.swift */; };
+		DAE99D811F51AFAE00E60FAC /* Tool.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE99D801F51AFAE00E60FAC /* Tool.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,7 @@
 		DA1CAE981F507151004686CE /* CoreDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		DADFC7501F5107EA0079CBDA /* RecordModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordModel.swift; sourceTree = "<group>"; };
 		DADFC7521F510D1E0079CBDA /* RecordListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordListViewController.swift; sourceTree = "<group>"; };
+		DAE99D801F51AFAE00E60FAC /* Tool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tool.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +121,7 @@
 				DADFC7501F5107EA0079CBDA /* RecordModel.swift */,
 				DA16A72F1F511AB200A2926F /* RecordCell.swift */,
 				DA16A7301F511AB200A2926F /* RecordCell.xib */,
+				DAE99D801F51AFAE00E60FAC /* Tool.swift */,
 				DA09AE351F504DD900F467C9 /* Main.storyboard */,
 				DA09AE3B1F504DD900F467C9 /* Assets.xcassets */,
 				DA09AE3D1F504DD900F467C9 /* LaunchScreen.storyboard */,
@@ -288,6 +291,7 @@
 				DA09AE321F504DD900F467C9 /* AppDelegate.swift in Sources */,
 				DADFC7511F5107EA0079CBDA /* RecordModel.swift in Sources */,
 				DA09AE631F5050FC00F467C9 /* AudioManager.swift in Sources */,
+				DAE99D811F51AFAE00E60FAC /* Tool.swift in Sources */,
 				DA1CAE991F507151004686CE /* CoreDataManager.swift in Sources */,
 				DA09AE3A1F504DD900F467C9 /* VideoNotepad.xcdatamodeld in Sources */,
 			);
@@ -450,6 +454,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.52jiaoshi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -465,6 +470,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.52jiaoshi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

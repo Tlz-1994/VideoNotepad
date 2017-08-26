@@ -11,32 +11,17 @@
 import UIKit
 import AVFoundation
 
-public protocol AudioManagerDelegate: NSObjectProtocol {
-    func starPlayWithFilePath(_ filePath: String?)
-    func pausePlayWithFilePath(_ filePath: String?)
-    func finishPlayWithFilePath(_ filePath: String?)
-//    func currentRecordVolume(_ volume: Float?)
+@objc public protocol AudioManagerDelegate: class {
+    @objc optional func starPlayWithFilePath(_ filePath: String?)
+    @objc optional func pausePlayWithFilePath(_ filePath: String?)
+    @objc optional func finishPlayWithFilePath(_ filePath: String?)
+    @objc optional func currentRecordVolume(_ volume: String?)
 }
 
 public class AudioManager: NSObject {
     
     // 单例方法
     static let manager = AudioManager.init()
-    private override init(){
-        let session = AVAudioSession.sharedInstance()
-        // 设置session类型
-        do {
-            try session.setCategory(AVAudioSessionCategoryPlayAndRecord)
-        } catch let error{
-            print("设置类型失败:\(error.localizedDescription)")
-        }
-        // 设置session动作
-        do {
-            try session.setActive(true)
-        } catch let error {
-            print("初始化动作失败:\(error.localizedDescription)")
-        }
-    }
     
     // 代理
     weak open var delegate: AudioManagerDelegate?
@@ -55,6 +40,22 @@ public class AudioManager: NSObject {
     
     fileprivate var currentPlayFilePath: String?
     
+    private override init(){
+        let session = AVAudioSession.sharedInstance()
+        // 设置session类型
+        do {
+            try session.setCategory(AVAudioSessionCategoryPlayAndRecord)
+        } catch let error{
+            print("设置类型失败:\(error.localizedDescription)")
+        }
+        // 设置session动作
+        do {
+            try session.setActive(true)
+        } catch let error {
+            print("初始化动作失败:\(error.localizedDescription)")
+        }
+    }
+    
     // 初始化音量监听器
     private func setUpMoitor() {
         timer?.invalidate()
@@ -66,8 +67,8 @@ public class AudioManager: NSObject {
     @objc private func updateTimer() {
         recorder?.updateMeters()
         let power = recorder?.peakPower(forChannel: 0)
-        if delegate != nil {
-//            delegate?.currentRecordVolume(pow(10, 0.05 * power!))
+        if (power != nil) {
+            delegate?.currentRecordVolume?("\(pow(10, 0.05 * power!))")
         }
     }
     
@@ -92,11 +93,8 @@ public class AudioManager: NSObject {
     public func stopRecord() -> String {
         if let recorder = self.recorder {
             if recorder.isRecording {
-                print("正在录音,文件保存到了：\(temfilePath!)")
-            }else {
-                print("没有录音,但是依然结束它")
+                recorder.stop()
             }
-            recorder.stop()
             self.recorder = nil
             // 把音频从临时保存的位置移动到固定的位置
             return moveAudioToDocument(temfilePath!)
@@ -111,7 +109,7 @@ public class AudioManager: NSObject {
         if (player != nil) {
             if (player?.isPlaying)! {
                 player?.pause()
-                self.delegate?.pausePlayWithFilePath(currentPlayFilePath)
+                delegate?.pausePlayWithFilePath?(currentPlayFilePath)
             }
         }
     }
@@ -119,7 +117,7 @@ public class AudioManager: NSObject {
     // 恢复播放
     public func resume() {
         player?.play()
-        self.delegate?.starPlayWithFilePath(currentPlayFilePath)
+        delegate?.starPlayWithFilePath?(currentPlayFilePath)
     }
     
     // 播放
@@ -129,7 +127,7 @@ public class AudioManager: NSObject {
             player = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: path))
             player?.delegate = self
             player?.play()
-            self.delegate?.starPlayWithFilePath(currentPlayFilePath)
+            delegate?.starPlayWithFilePath?(currentPlayFilePath)
         } catch let error {
             print("播放失败:\(error.localizedDescription)")
         }
@@ -147,7 +145,7 @@ public class AudioManager: NSObject {
 extension AudioManager: AVAudioPlayerDelegate {
     public func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
         if (self.delegate != nil) {
-            self.delegate?.finishPlayWithFilePath(currentPlayFilePath!)
+            self.delegate?.finishPlayWithFilePath?(currentPlayFilePath!)
         }
     }
 }
@@ -155,10 +153,7 @@ extension AudioManager: AVAudioPlayerDelegate {
 extension AudioManager {
     fileprivate func moveAudioToDocument(_ from: String) -> String {
         let fileManaget = FileManager.default
-        // 根据当前时间戳生成一个文件名
-        let now = Date()
-        let dateString = String(now.timeIntervalSince1970)
-        let saveString = dateString.appending(".wav")
+        let saveString = Tool.getRandomFileName()
         let toPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first?.appending("/\(saveString)")
         do {
             try fileManaget.moveItem(atPath: from, toPath: toPath!)

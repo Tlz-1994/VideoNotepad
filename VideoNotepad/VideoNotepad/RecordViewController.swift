@@ -8,10 +8,14 @@
 
 import UIKit
 
-class RecordViewController: UIViewController {
+class RecordViewController: UIViewController, AudioManagerDelegate {
     
+    @IBOutlet weak var shadowView: UIImageView!
+    @IBOutlet weak var volumeIamageView: UIImageView!
     @IBOutlet weak var playBtn: UIButton!
     @IBOutlet weak var recordBtn: UIButton!
+    
+    private var currentFilePath: String?
     
     private let audioManager: AudioManager = {
         return AudioManager.manager
@@ -22,6 +26,11 @@ class RecordViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         loadMainUI()
         bindButtonClickAction()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        audioManager.delegate = self
     }
 
     override func didReceiveMemoryWarning() {
@@ -34,40 +43,62 @@ class RecordViewController: UIViewController {
         title = "录音"
         
         // navigationController right item
-        let button = UIButton(type: .custom)
-        button.frame = CGRect(x: 0, y: 0, width: 40, height: 40)
-        button.titleLabel?.text = "记录列表"
-        button.titleLabel?.textColor = UIColor.black
-        button.addTarget(self, action: #selector(pushAction), for: .touchUpInside)
-//        let item = UIBarButtonItem.init(customView: button)
-        let ri = UIBarButtonItem.init(barButtonSystemItem: .save, target: self, action: #selector(pushAction))
-        navigationItem.rightBarButtonItem = ri
+        let rightItem = UIBarButtonItem.init(barButtonSystemItem: .compose, target: self, action: #selector(pushAction))
+        navigationItem.rightBarButtonItem = rightItem
         
+        // hidden
+        playBtn.isHidden = true
+        volumeIamageView.isHidden = true
     }
     
     // MARK: 绑定按钮的点击事件
     private func bindButtonClickAction() {
         recordBtn.addTarget(self, action: #selector(beginRecord), for: .touchDown)
         recordBtn.addTarget(self, action: #selector(endRecordAndPlay), for: .touchUpInside)
+        playBtn.addTarget(self, action: #selector(playAction), for: .touchUpInside)
     }
     
     @objc private func beginRecord() {
+        volumeIamageView.isHidden = false
+        playBtn.isHidden = true
         audioManager.beginRecord()
     }
     
     @objc private func endRecordAndPlay() {
+        volumeIamageView.isHidden = true
         let filePath = audioManager.stopRecord()
-        audioManager.playWithSuffix(filePath)
+        currentFilePath = filePath
+        playBtn.isHidden = false
         // 存储这条音频的数据
         let record = RecordModel()
-        record.fileName = "12345"
+        record.fileName = Tool.getRandomName()
         record.filePath = filePath
         CoreDataManager().addRecord(record)
+    }
+    
+    // 播放当前录制完音频
+    @objc private func playAction() {
+        audioManager.playWithSuffix(currentFilePath!)
     }
     
     @objc private func pushAction() {
         let listVC = RecordListViewController()
         navigationController?.pushViewController(listVC, animated: true)
+    }
+    
+    // MARK:AudioManager代理
+    func finishPlayWithFilePath(_ filePath: String?) {
+        
+    }
+    
+    func currentRecordVolume(_ volume: String?) {
+        let height = volumeIamageView.frame.size.height * (1 - CGFloat.init(Float(volume!)!))
+        let width = volumeIamageView.frame.size.width
+        let x = volumeIamageView.frame.origin.x
+        let y = volumeIamageView.frame.origin.y
+        UIView.animate(withDuration: 0.001) {
+            self.shadowView.frame = CGRect.init(x: x, y: y, width: width, height: height)
+        }
     }
 
 }
