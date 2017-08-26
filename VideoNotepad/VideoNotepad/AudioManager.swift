@@ -15,6 +15,7 @@ public protocol AudioManagerDelegate: NSObjectProtocol {
     func starPlayWithFilePath(_ filePath: String?)
     func pausePlayWithFilePath(_ filePath: String?)
     func finishPlayWithFilePath(_ filePath: String?)
+//    func currentRecordVolume(_ volume: Float?)
 }
 
 public class AudioManager: NSObject {
@@ -40,28 +41,46 @@ public class AudioManager: NSObject {
     // 代理
     weak open var delegate: AudioManagerDelegate?
     
-    private var recorder: AVAudioRecorder?
+    private let recordSetting: [String: Any] = [AVSampleRateKey: NSNumber(value: 16000),
+                                                AVFormatIDKey: NSNumber(value: kAudioFormatLinearPCM),
+                                                AVLinearPCMBitDepthKey: NSNumber(value: 16),
+                                                AVNumberOfChannelsKey: NSNumber(value: 1),
+                                                AVEncoderAudioQualityKey: NSNumber(value: AVAudioQuality.min.rawValue)
+    ];
+    private var recorder: AVAudioRecorder?         // 录音器
+    private var timer: CADisplayLink?
     private var player: AVAudioPlayer?
     private let rootFilePath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first?.appending("/")
     private let temfilePath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first?.appending("/recordtem.wav")   // 保存临时录音文件的位置
     
     fileprivate var currentPlayFilePath: String?
     
+    // 初始化音量监听器
+    private func setUpMoitor() {
+        timer?.invalidate()
+        timer = CADisplayLink(target: self, selector: #selector(updateTimer))
+        timer?.add(to: .current, forMode: .commonModes)
+        recorder!.isMeteringEnabled = true
+    }
+    
+    @objc private func updateTimer() {
+        recorder?.updateMeters()
+        let power = recorder?.peakPower(forChannel: 0)
+        if delegate != nil {
+//            delegate?.currentRecordVolume(pow(10, 0.05 * power!))
+        }
+    }
+    
     // 开始录音
     public func beginRecord() {
-        let recordSetting: [String: Any] = [AVSampleRateKey: NSNumber(value: 16000),
-            AVFormatIDKey: NSNumber(value: kAudioFormatLinearPCM),
-            AVLinearPCMBitDepthKey: NSNumber(value: 16),
-            AVNumberOfChannelsKey: NSNumber(value: 1),
-            AVEncoderAudioQualityKey: NSNumber(value: AVAudioQuality.min.rawValue)
-        ];
-        
         // 开始录音
         do {
+            pause() // 如果有正在播放的音频，暂停播放
             let url = URL(fileURLWithPath: temfilePath!)
             recorder = try AVAudioRecorder(url: url, settings: recordSetting)
             recorder!.prepareToRecord()
             recorder!.record()
+            setUpMoitor()
             print("开始录音")
         } catch let error {
             print("录音失败:\(error.localizedDescription)")
@@ -73,9 +92,9 @@ public class AudioManager: NSObject {
     public func stopRecord() -> String {
         if let recorder = self.recorder {
             if recorder.isRecording {
-                print("正在录音，马上结束它，文件保存到了：\(temfilePath!)")
+                print("正在录音,文件保存到了：\(temfilePath!)")
             }else {
-                print("没有录音，但是依然结束它")
+                print("没有录音,但是依然结束它")
             }
             recorder.stop()
             self.recorder = nil
@@ -89,19 +108,23 @@ public class AudioManager: NSObject {
     
     // 暂停当前音频播放
     public func pause() {
-        if (player?.isPlaying)! {
-            player?.pause()
-            self.delegate?.pausePlayWithFilePath(currentPlayFilePath)
+        if (player != nil) {
+            if (player?.isPlaying)! {
+                player?.pause()
+                self.delegate?.pausePlayWithFilePath(currentPlayFilePath)
+            }
         }
     }
     
     // 恢复播放
     public func resume() {
         player?.play()
+        self.delegate?.starPlayWithFilePath(currentPlayFilePath)
     }
     
     // 播放
     public func play(_ path: String) {
+        timer?.invalidate()
         do {
             player = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: path))
             player?.delegate = self

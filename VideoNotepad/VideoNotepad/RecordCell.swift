@@ -12,6 +12,18 @@ class RecordCell: UITableViewCell {
     
     @IBOutlet weak var recordNameLabel: UILabel!
     @IBOutlet weak var playStateLabel: UILabel!
+    
+    private var _record: RecordModel?
+    public var record: RecordModel? {
+        get {
+            return _record
+        }
+        set {
+            _record = newValue
+            recordNameLabel.text = newValue?.fileName
+            playStateLabel.text = newValue?.playState.rawValue
+        }
+    }
 
     override func awakeFromNib() {
         super.awakeFromNib()

@@ -36,6 +36,10 @@ class RecordListViewController: UIViewController, AudioManagerDelegate {
         // Dispose of any resources that can be recreated.
     }
     
+    deinit {
+        AudioManager.manager.delegate = nil
+    }
+    
     // MARK: 初始化数据
     private func loadDataSource() {
         dataSource = CoreDataManager().getAllRecord()
@@ -87,8 +91,7 @@ extension RecordListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! RecordCell
         let record = dataSource[indexPath.row]
-        cell.recordNameLabel.text = record.fileName
-        cell.playStateLabel.text = record.playState.rawValue
+        cell.record = record
         return cell
     }
     
@@ -96,8 +99,19 @@ extension RecordListViewController: UITableViewDelegate, UITableViewDataSource {
         tableView.deselectRow(at: indexPath, animated: true)
         // 播放
         let record = dataSource[indexPath.row]
+        if currentRecord.filePath != record.filePath {
+            for record in dataSource {
+                record.playState = .Normal
+            }
+        }
         currentRecord = record
-        AudioManager.manager.playWithSuffix(record.filePath!)
+        if record.playState == .Normal {
+            AudioManager.manager.playWithSuffix(record.filePath!)
+        } else if record.playState == .Playing {
+            AudioManager.manager.pause()
+        } else if record.playState == .Pause  {
+            AudioManager.manager.resume()
+        }
     }
     
 }

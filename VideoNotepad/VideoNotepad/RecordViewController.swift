@@ -10,6 +10,7 @@ import UIKit
 
 class RecordViewController: UIViewController {
     
+    @IBOutlet weak var playBtn: UIButton!
     @IBOutlet weak var recordBtn: UIButton!
     
     private let audioManager: AudioManager = {
@@ -30,7 +31,7 @@ class RecordViewController: UIViewController {
     
     // MARK: 创建UI
     private func loadMainUI() {
-        navigationController?.title = "录音"
+        title = "录音"
         
         // navigationController right item
         let button = UIButton(type: .custom)
@@ -41,7 +42,6 @@ class RecordViewController: UIViewController {
 //        let item = UIBarButtonItem.init(customView: button)
         let ri = UIBarButtonItem.init(barButtonSystemItem: .save, target: self, action: #selector(pushAction))
         navigationItem.rightBarButtonItem = ri
-        
         
     }
     

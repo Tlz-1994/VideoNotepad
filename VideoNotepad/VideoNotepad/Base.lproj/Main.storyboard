@@ -37,29 +37,47 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OrO-qK-NyT">
-                                <rect key="frame" x="164" y="318" width="46" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OrO-qK-NyT">
+                                <rect key="frame" x="128" y="558" width="118" height="109"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="Oyf-Lh-QgO"/>
-                                    <constraint firstAttribute="width" constant="46" id="cVy-0g-YJE"/>
+                                    <constraint firstAttribute="height" constant="109" id="XjM-66-CA0"/>
+                                    <constraint firstAttribute="width" constant="118" id="Zjz-O7-MJh"/>
                                 </constraints>
-                                <state key="normal" title="录音"/>
+                                <state key="normal" image="volume"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Syf-t0-WYZ">
+                                <rect key="frame" x="75" y="306" width="224" height="55"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="224" id="E2B-fU-H8V"/>
+                                    <constraint firstAttribute="height" constant="55" id="PbO-db-dkF"/>
+                                </constraints>
+                                <inset key="imageEdgeInsets" minX="-39" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <state key="normal" title="播放" image="play">
+                                    <color key="titleColor" red="0.24313725489999999" green="0.80000000000000004" blue="0.70196078429999997" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="OrO-qK-NyT" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="TvR-qX-1jJ"/>
-                            <constraint firstItem="OrO-qK-NyT" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="f3F-f1-dIJ"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="OrO-qK-NyT" secondAttribute="bottom" id="ExB-kD-hTJ"/>
+                            <constraint firstItem="OrO-qK-NyT" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Iat-Rb-SqM"/>
+                            <constraint firstItem="Syf-t0-WYZ" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="jYe-Cb-CVn"/>
+                            <constraint firstItem="Syf-t0-WYZ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="tPc-na-I7m"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="rhU-Fq-smo"/>
                     <connections>
+                        <outlet property="playBtn" destination="Syf-t0-WYZ" id="IoP-Vc-8pk"/>
                         <outlet property="recordBtn" destination="OrO-qK-NyT" id="VAY-Zf-KRo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-722" y="-78"/>
+            <point key="canvasLocation" x="-722.39999999999998" y="-78.710644677661179"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="play" width="32" height="32"/>
+        <image name="volume" width="64" height="64"/>
+    </resources>
 </document>
