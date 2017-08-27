@@ -18,16 +18,19 @@ public class CoreDataManager {
     // MARK:数据库操作
     
     public func addRecord(_ record: RecordModel) {
-        let newRecord = NSEntityDescription.insertNewObject(forEntityName: entityName, into: context) as! Record
-        // add data
-        newRecord.fileName = record.fileName!
-        newRecord.filePath = record.filePath!
-        
-        // save data
-        do {
-            try context.save()
-        } catch let error {
-            print("插入失败:\(error.localizedDescription)")
+        if record.filePath != nil || record.fileName != nil  {
+            // 判断存储的数据是否正确，fileName和filePath都要争取
+            let newRecord = NSEntityDescription.insertNewObject(forEntityName: entityName, into: context) as! Record
+            // add data
+            newRecord.fileName = record.fileName!
+            newRecord.filePath = record.filePath!
+            
+            // save data
+            do {
+                try context.save()
+            } catch let error {
+                Tool.dPrint("插入失败:\(error.localizedDescription)")
+            }
         }
     }
     
@@ -48,7 +51,7 @@ public class CoreDataManager {
             }
             return records
         } catch let error {
-            print("查询失败:\(error.localizedDescription)")
+            Tool.dPrint("查询失败:\(error.localizedDescription)")
             return records
         }
     }

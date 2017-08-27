@@ -55,6 +55,9 @@
                                 <state key="normal" title="播放" image="play">
                                     <color key="titleColor" red="0.24313725489999999" green="0.80000000000000004" blue="0.70196078429999997" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" red="0.46122435020000002" green="1" blue="0.39485109909999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="yinliang" translatesAutoresizingMaskIntoConstraints="NO" id="uAg-eo-9UD">
                                 <rect key="frame" x="173" y="471" width="29" height="100"/>

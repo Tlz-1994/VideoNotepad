@@ -35,11 +35,7 @@ class RecordListViewController: UIViewController, AudioManagerDelegate {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    deinit {
-        AudioManager.manager.delegate = nil
-    }
-    
+        
     // MARK: 初始化数据
     private func loadDataSource() {
         dataSource = CoreDataManager().getAllRecord()
@@ -61,7 +57,7 @@ class RecordListViewController: UIViewController, AudioManagerDelegate {
         AudioManager.manager.delegate = self
     }
     
-    // 根绝AudioManager的回调判断当前每个record的状态
+    // 根据AudioManager的回调判断当前每个record的状态
     func starPlayWithFilePath(_ filePath: String?) {
         currentRecord.filePath = filePath
         currentRecord.playState = .Playing

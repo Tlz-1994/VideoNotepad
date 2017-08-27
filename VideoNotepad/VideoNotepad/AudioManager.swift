@@ -39,21 +39,29 @@ public class AudioManager: NSObject {
     private let temfilePath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first?.appending("/recordtem.wav")   // 保存临时录音文件的位置
     
     fileprivate var currentPlayFilePath: String?
+    public var isCanRecord: Bool!           // 判断是否有权限使用麦克风
     
-    private override init(){
+    private override init(){}
+    
+    // 初始化session和权限的判断
+    public func setUpSessionManager() {
         let session = AVAudioSession.sharedInstance()
         // 设置session类型
         do {
             try session.setCategory(AVAudioSessionCategoryPlayAndRecord)
         } catch let error{
-            print("设置类型失败:\(error.localizedDescription)")
+            Tool.dPrint("设置session失败:\(error.localizedDescription)")
         }
         // 设置session动作
         do {
             try session.setActive(true)
         } catch let error {
-            print("初始化动作失败:\(error.localizedDescription)")
+            Tool.dPrint("初始化失败:\(error.localizedDescription)")
         }
+        isCanRecord = false
+        session.requestRecordPermission({(isCan) in
+            self.isCanRecord = isCan
+        })
     }
     
     // 初始化音量监听器
@@ -82,25 +90,26 @@ public class AudioManager: NSObject {
             recorder!.prepareToRecord()
             recorder!.record()
             setUpMoitor()
-            print("开始录音")
+            Tool.dPrint("开始录音")
         } catch let error {
-            print("录音失败:\(error.localizedDescription)")
+            Tool.dPrint("录音失败:\(error.localizedDescription)")
         }
     }
     
     
     // 结束录音, 并返回音频的保存位置
-    public func stopRecord() -> String {
+    public func stopRecord() -> String? {
         if let recorder = self.recorder {
             if recorder.isRecording {
                 recorder.stop()
+                self.recorder = nil
+                // 把音频从临时保存的位置移动到固定的位置
+                return moveAudioToDocument(temfilePath!)
             }
-            self.recorder = nil
-            // 把音频从临时保存的位置移动到固定的位置
-            return moveAudioToDocument(temfilePath!)
+            return nil
         }else {
-            print("没有初始化")
-            return ""
+            Tool.dPrint("没有初始化")
+            return nil
         }
     }
     
@@ -129,7 +138,7 @@ public class AudioManager: NSObject {
             player?.play()
             delegate?.starPlayWithFilePath?(currentPlayFilePath)
         } catch let error {
-            print("播放失败:\(error.localizedDescription)")
+            Tool.dPrint("播放失败:\(error.localizedDescription)")
         }
     }
     
@@ -159,7 +168,7 @@ extension AudioManager {
             try fileManaget.moveItem(atPath: from, toPath: toPath!)
             return saveString
         } catch let error {
-            print("移动失败:\(error.localizedDescription)")
+            Tool.dPrint("移动失败:\(error.localizedDescription)")
             return ""
         }
     }

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class RecordViewController: UIViewController, AudioManagerDelegate {
+class RecordViewController: UIViewController {
     
     @IBOutlet weak var shadowView: UIImageView!
     @IBOutlet weak var volumeIamageView: UIImageView!
@@ -49,6 +49,7 @@ class RecordViewController: UIViewController, AudioManagerDelegate {
         // hidden
         playBtn.isHidden = true
         volumeIamageView.isHidden = true
+        
     }
     
     // MARK: 绑定按钮的点击事件
@@ -59,21 +60,27 @@ class RecordViewController: UIViewController, AudioManagerDelegate {
     }
     
     @objc private func beginRecord() {
-        volumeIamageView.isHidden = false
-        playBtn.isHidden = true
-        audioManager.beginRecord()
+        if audioManager.isCanRecord {
+            volumeIamageView.isHidden = false
+            playBtn.isHidden = true
+            audioManager.beginRecord()
+        } else {
+            Tool.alertNoJurisdictionFromController(self)
+        }
     }
     
     @objc private func endRecordAndPlay() {
-        volumeIamageView.isHidden = true
-        let filePath = audioManager.stopRecord()
-        currentFilePath = filePath
-        playBtn.isHidden = false
-        // 存储这条音频的数据
-        let record = RecordModel()
-        record.fileName = Tool.getRandomName()
-        record.filePath = filePath
-        CoreDataManager().addRecord(record)
+        if audioManager.isCanRecord {
+            volumeIamageView.isHidden = true
+            let filePath = audioManager.stopRecord()
+            currentFilePath = filePath
+            playBtn.isHidden = false
+            // 存储这条音频的数据
+            let record = RecordModel()
+            record.fileName = Tool.getRandomName()
+            record.filePath = filePath
+            CoreDataManager().addRecord(record)
+        }
     }
     
     // 播放当前录制完音频
@@ -85,7 +92,11 @@ class RecordViewController: UIViewController, AudioManagerDelegate {
         let listVC = RecordListViewController()
         navigationController?.pushViewController(listVC, animated: true)
     }
-    
+
+}
+
+extension RecordViewController: AudioManagerDelegate {
+ 
     // MARK:AudioManager代理
     func finishPlayWithFilePath(_ filePath: String?) {
         
@@ -100,6 +111,6 @@ class RecordViewController: UIViewController, AudioManagerDelegate {
             self.shadowView.frame = CGRect.init(x: x, y: y, width: width, height: height)
         }
     }
-
+    
 }
 
